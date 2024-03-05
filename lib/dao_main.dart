@@ -514,7 +514,7 @@ class Dao_Main extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),
-                      ),
+                      ), // 1종보통 
                       MaterialButton(onPressed: (){
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>Daehyeong())); //1종대형
                       },
