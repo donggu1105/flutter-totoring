@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(const Duration(seconds: 2),(){
       Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)
-      =>const Dao_Main()));
+      =>Dao_Main()));
     });
   }
 
@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Image(
             width: Get.width,
             height: Get.height,
-            image: const AssetImage('image/logo.png'),
+            image: const AssetImage('image/logo1.png'),
           ),
         ),
       ),

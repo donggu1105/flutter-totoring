@@ -1,10 +1,14 @@
 import 'dart:convert';
-
 import 'package:dio/dio.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'china1.dart';
+import 'package:get/get_core/src/get_main.dart';
+
 import 'china2.dart';
+import 'china3.dart';
+import 'korea1.dart';
+
 
 class China extends StatefulWidget {
   const China({Key? key}) : super(key: key);
@@ -18,110 +22,152 @@ class _Screen2State extends State<China> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
 
-    //TabController tabController = TabController(length: 3, vsync: this);
-
     return Scaffold(
         appBar: AppBar(
-          title: Text('중국어 ( 选择 )'),
+          title: Text('중국어 ( 中国人 )'),
         ),
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.all(15.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+        body: SingleChildScrollView(
+          child: Column(
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(height: 30,),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(height: 70),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
+                  Expanded(
+                      child: GestureDetector(
                         child: ElevatedButton(onPressed: ()async{
-                          var rawResponse=await Dio().get('https://raw.githubusercontent.com/dbswhdaks/drive/main/china.json');
-                          List response=jsonDecode(rawResponse.data);
-
-                          Get.to(China1(),arguments:[response]);
-                        },
-                          child: Column(
-                            children: [
-                              Text('1종보통',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 40,color: Colors.black87)),
-                              Text('1型正常',style: TextStyle(fontSize: 20,color: Colors.black87)),
-                            ],
-                          ),
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              elevation: 3,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              minimumSize: Size(235, 235)
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 7),
-                      Container(
-                        child: ElevatedButton(onPressed: ()async{
-                          var rawResponse=await Dio().get('https://raw.githubusercontent.com/dbswhdaks/drive/main/china.json');
+                          var rawResponse = await Dio().get('https://raw.githubusercontent.com/dbswhdaks/drive/main/china.json');
                           List response=jsonDecode(rawResponse.data);
                           print(response);
 
-                          Get.to(China1(),arguments:[response]);
+                          Get.to(Korea1(),arguments:[response]);
                         },
-                          child: Column(
-                            children: [
-                              Text('2종보통',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 40,color: Colors.black87)),
-                              Text('2型正常',style: TextStyle(fontSize: 20,color: Colors.black87)),
-                            ],
-                          ),
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.white,
-                              elevation: 3,
+                              elevation: 1,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.circular(0),
                               ),
-                              minimumSize: Size(235, 235)
+                              maximumSize: Size(200, 80)
+                          ),child: ButtonBar(
+                            alignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(width: 20,),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('1종보통',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold,color: Colors.black87)),
+                                  Text(' (1型正常)', style: TextStyle(fontSize: 15, color: Colors.black87)),
+                                ],
+                              ),
+                              SizedBox(width: 110,),
+                              SizedBox(
+                                child: IconButton(alignment: Alignment.centerRight,
+                                  icon: Icon(Icons.navigate_next,color: Colors.black87,),
+                                  onPressed: null,
+                                ),
+                              )
+                            ],
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 7),
-                  Container(
-                    child: ElevatedButton(onPressed: ()async{
-                      var rawResponse=await Dio().get('https://raw.githubusercontent.com/dbswhdaks/drive/main/c2.json');
-                      List response=jsonDecode(rawResponse.data);
-                      print(response);
-
-                      Get.to(China2(),arguments:[response]);
-                    },
-                      child: Column(
-                        children: [
-                          Text('2종소형(원동기)',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 40,color: Colors.black87)),
-                          Text('原动机',style: TextStyle(fontSize: 20,color: Colors.black87)),
-                        ],
-                      ),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          elevation: 3,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          minimumSize: Size(470, 150)
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 30),
-                  TextButton(onPressed: (){},
-                      child: Column(
-                        children: [
-                          Text('필기시험 접수하러가기   >>>',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
-                          Text('( 申请 )',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
-                        ],
                       )),
                 ],
               ),
-            ),
+              SizedBox(height: 7,),
+
+              Row(
+                children: [
+                  Expanded(
+                      child: GestureDetector(
+                        child: ElevatedButton(onPressed: ()async{
+                          var rawResponse = await Dio().get('https://raw.githubusercontent.com/dbswhdaks/drive/main/china.json');
+                          List response=jsonDecode(rawResponse.data);
+                          print(response);
+
+                          Get.to(China2(),arguments:[response]);
+                        },
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              elevation: 1,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                              maximumSize: Size(200, 80)
+                          ),child: ButtonBar(
+                            alignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(width: 20,),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('2종보통',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold,color: Colors.black87),),
+                                  Text('(2型正常)', style: TextStyle(fontSize: 15, color: Colors.black87)),
+                                ],
+                              ),
+                              SizedBox(width: 110,),
+                              SizedBox(
+                                child: IconButton(
+                                  alignment: Alignment.centerRight,
+                                  icon: Icon(Icons.navigate_next,color: Colors.black87,),
+                                  onPressed: null,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      )),
+                ],
+              ),
+
+              SizedBox(height: 7,),
+              Row(
+                children: [
+                  Expanded(
+                      child: GestureDetector(
+                        child: ElevatedButton(onPressed: ()async{
+                          var rawResponse = await Dio().get('https://raw.githubusercontent.com/dbswhdaks/drive/main/c2.json');
+                          List response=jsonDecode(rawResponse.data);
+                          print(response);
+
+                          Get.to(China3(),arguments:[response]);
+                        },
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              elevation: 1,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                              maximumSize: Size(200, 80)
+                          ),child: ButtonBar(
+                            alignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(width: 20,),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('2종소형(원동기)',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold,color: Colors.black87),),
+                                  Text('(原动机)', style: TextStyle(fontSize: 15, color: Colors.black87)),
+                                ],
+                              ),
+                              SizedBox(width: 30,),
+                              SizedBox(
+                                child: IconButton(alignment: Alignment.centerRight,
+                                  icon: Icon(Icons.navigate_next,color: Colors.black87,),
+                                  onPressed: null,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      )),
+                ],
+              ),
+              SizedBox(height: 7,),
+            ],
           ),
         )
     );
