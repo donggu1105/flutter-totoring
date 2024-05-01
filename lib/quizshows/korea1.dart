@@ -22,7 +22,7 @@ class _Screen2State extends State<Korea1> with TickerProviderStateMixin {
   RxInt selectedNum = 0.obs; //사용자가 선택한 선지가 어떤 선지인지 프로그램이 알수 있게 하기 위해서 만든 변수
   Map selectedNumList = {};
   double score =0;
-
+//안녕하세요
 
 
   //YoutubePlayerController youtubePlayerController =  YoutubePlayerController.fromVideoId(videoId: Get.arguments[0][29]['video'].toString().substring(Get.arguments[0][20]['video'].toString().length-11));
